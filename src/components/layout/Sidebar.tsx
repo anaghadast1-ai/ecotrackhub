@@ -6,7 +6,8 @@ import {
   TrendingUp, 
   LogOut, 
   Leaf,
-  User
+  User,
+  Settings
 } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
@@ -17,6 +18,10 @@ const navItems = [
   { path: '/data-entry', label: 'Data Entry', icon: FileInput },
   { path: '/analytics', label: 'Analytics', icon: BarChart3 },
   { path: '/predictions', label: 'Predictions', icon: TrendingUp },
+];
+
+const adminNavItems = [
+  { path: '/admin', label: 'Admin Panel', icon: Settings },
 ];
 
 export function Sidebar() {
@@ -60,6 +65,33 @@ export function Sidebar() {
             </Link>
           );
         })}
+
+        {/* Admin Navigation */}
+        {user?.role === 'admin' && (
+          <div className="pt-4 mt-4 border-t border-border">
+            <p className="px-4 text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Admin</p>
+            {adminNavItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = location.pathname === item.path;
+              
+              return (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={cn(
+                    "flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200",
+                    isActive 
+                      ? "bg-primary text-primary-foreground shadow-md" 
+                      : "text-muted-foreground hover:bg-secondary hover:text-foreground"
+                  )}
+                >
+                  <Icon className="w-5 h-5" />
+                  <span className="font-medium">{item.label}</span>
+                </Link>
+              );
+            })}
+          </div>
+        )}
       </nav>
 
       {/* User Section */}

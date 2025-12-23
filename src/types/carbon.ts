@@ -4,11 +4,13 @@ export interface User {
   id: string;
   username: string;
   role: UserRole;
+  panchayatId?: string;
 }
 
 export interface MonthlyData {
   id: string;
   userId: string;
+  panchayatId?: string;
   month: string;
   year: number;
   electricityKwh: number;

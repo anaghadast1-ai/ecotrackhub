@@ -9,6 +9,7 @@ import Dashboard from "./pages/Dashboard";
 import DataEntry from "./pages/DataEntry";
 import Analytics from "./pages/Analytics";
 import Predictions from "./pages/Predictions";
+import AdminPanel from "./pages/AdminPanel";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
             <Route path="/data-entry" element={<DataEntry />} />
             <Route path="/analytics" element={<Analytics />} />
             <Route path="/predictions" element={<Predictions />} />
+            <Route path="/admin" element={<AdminPanel />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
