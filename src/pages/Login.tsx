@@ -79,7 +79,7 @@ export default function Login() {
             <Leaf className="w-12 h-12" />
           </div>
           <h1 className="font-display text-4xl font-bold mb-4 text-center">
-            EcoTrack
+            CarbonTrack
           </h1>
           <p className="text-lg text-primary-foreground/80 text-center max-w-md">
             AI-Powered Carbon Footprint Tracker for Sustainable Communities
